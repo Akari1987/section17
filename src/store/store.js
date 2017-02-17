@@ -24,8 +24,21 @@ export const store = new Vuex.Store({
 		}
 	},
 	actions: {
-		increment: context => {
-			context.commit('increment');
+		increment: ({commit}) => {
+			commit('increment');
+		},
+		decrement: ({commit}) => {
+			commit('decrement');
+		},
+		asyncIncrement: ({commit})=> {
+			setTimeout(() => {
+				commit('increment');
+			}, 1000);
+		},
+		asyncDecrement: ({commit})=> {
+			setTimeout(() => {
+				commit('decrement');
+			}, 1000);
 		}
 	}
 });
